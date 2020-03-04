@@ -9,3 +9,8 @@ class ClickCount {
         return 0;
     }
 }
+class ClickCompanion {
+    constructor() {
+        this.clickCompanion = 100;
+    }
+}
