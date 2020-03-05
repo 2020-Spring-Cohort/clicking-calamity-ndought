@@ -1,8 +1,9 @@
 describe('Clicking Calamity Tests:', () => {
     let underTest;
+    let testCompanion;
     beforeEach(() => {
         underTest = new ClickCount();
-        underTest1 = new ClickCompanion();
+        
     })
     describe('countClick() records each click and ClickCounter can display the clickCount', () => {
 
@@ -17,14 +18,38 @@ describe('Clicking Calamity Tests:', () => {
         });    
     });
     describe('Click Companions', () => {
-        it('ClickCounter should have 0 when new. ', () => {
+        it('ClickCompanions should have 0 when new. ', () => {
             expect(underTest.getCompanionCount()).toBe(0);
         });
-        it('When ClickCounter reaches 100 a clickCompanion can be purchased', () => {
-            expect(underTest.countClick).toBe(100);
-            expect(underTest.clickCompanion).toBe(1);
+        it('ClickCompanion can be purchased for 100 clicks', () => {
+           for(let i = 0;i < 100; i++){
+               underTest.countClick();
+            }
+            underTest.buyClickCompanion();
+            expect(underTest.getCompanionCount()).toBe(1);
+           
+            
+            
         });
+        it('Buying ClickCompanion decreases clickCount by 100', () =>{
+            for(let i = 0;i < 101; i++){
+                underTest.countClick();
+             }
+             underTest.buyClickCompanion();
+             expect(underTest.clickCount).toBe(1);
+        });
+        it('ClickCompanion cost should increase 10% each time', () =>{
+            for(let i = 0;i < 101; i++){
+                underTest.countClick(); 
+            }
+            underTest.buyClickCompanion();
+            expect(underTest.companionCost).toBe(110);
+
+        })
     });
-    
 });
+
+         
+        
+
     
