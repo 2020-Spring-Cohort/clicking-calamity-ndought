@@ -42,8 +42,21 @@ class CollectiveCulminationCompounder {
         this.companionCount = 0;
         this.companionCost = 100;
         this.compounderCount = 0;
+        this.compounderCost = 10;
+    }
+    countCompounder() {
+        this.compounderCount++;
     }
     displayCompounderCount() {
-        return this.compounderCount++;
+        return this.compounderCount;
+    }
+    buyCompounder() {
+        if (this.clickCount >= this.compounderCost){
+            this.clickCount -= this.compounderCost;
+            this.compounderCount++;
+            this.compounderCost = this.compounderCost + (this.countClick*0.1);
+        }
     }
 }
+
+// Math.pow(1.2, this.compounderCost
