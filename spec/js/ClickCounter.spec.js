@@ -46,11 +46,16 @@ describe('Clicking Calamity Tests:', () => {
             expect(underTest.companionCost).toBe(110);
 
         });
-        it('AutoClick should add companionCount to clickCount', () =>{
-            expect(underTest.displayCompanionCount).toBeEqualto(clickCount + companionCount);
+        it('AutoClick should add click to companionCount every second', () =>{
+            for(let i = 0; i<this.companionCount; i++){
+                underTest.countClick();
+                expect(underTest.setInterval).toBeEqualto(1000);
+            }
+            }, 1000);
+            
         });
     });
-});
+
 
          
         

@@ -22,10 +22,16 @@ class ClickCount {
         }
     }
     addAutoClick() {
-        this.autoClick = this.companionCount + this.clickCount;
     }
 
+    
+
 }
+setInterval(() => {
+    for(let i = 0; i<this.companionCount; i++){
+        this.countClick()
+    }
+}, 1000);
 
     
     
