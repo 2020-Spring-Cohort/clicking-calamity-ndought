@@ -1,9 +1,10 @@
+// iteration1
+
 class ClickCount {
     constructor() {
         this.clickCount = 0;
         this.companionCount = 0;
         this.companionCost = 100;
-        this.autoClick = this.companionCount + this.clickCount;
     }
     countClick() {
         this.clickCount++;
@@ -33,7 +34,16 @@ setInterval(() => {
     }
 }, 1000);
 
-    
-    
+// iteration2
 
-
+class CollectiveCulminationCompounder {
+    constructor() {
+        this.clickCount = 0;
+        this.companionCount = 0;
+        this.companionCost = 100;
+        this.compounderCount = 0;
+    }
+    displayCompounderCount() {
+        return this.compounderCount++;
+    }
+}

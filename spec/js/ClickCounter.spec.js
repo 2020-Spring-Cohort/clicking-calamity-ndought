@@ -1,9 +1,11 @@
+// iteration1
+
 describe('Clicking Calamity Tests:', () => {
     let underTest;
-    let testCompanion;
+    let underTest2;
     beforeEach(() => {
         underTest = new ClickCount();
-        
+        underTest2 = new CollectiveCulminationCompounder();
     })
     describe('countClick() records each click and ClickCounter can display the clickCount', () => {
 
@@ -54,10 +56,15 @@ describe('Clicking Calamity Tests:', () => {
             }, 1000);
             
         });
+    describe('Collective Culmination Compounder', () =>{
+        it('Collective Culmination Compounder should have 0 when new', () =>{
+            expect(underTest2.displayCompounderCount()).toBe(0);
+        });
+
+        
+
     });
-
-
-         
+}); 
         
 
     
