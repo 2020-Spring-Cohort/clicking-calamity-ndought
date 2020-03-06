@@ -17,16 +17,16 @@ describe('Clicking Calamity Tests:', () => {
             expect(underTest.clickCount).toBe(2);
         });    
     });
-    describe('Click Companions', () => {
-        it('ClickCompanions should have 0 when new. ', () => {
-            expect(underTest.getCompanionCount()).toBe(0);
+    describe('Click Companion', () => {
+        it('ClickCompanion should have 0 when new. ', () => {
+            expect(underTest.displayCompanionCount()).toBe(0);
         });
         it('ClickCompanion can be purchased for 100 clicks', () => {
            for(let i = 0;i < 100; i++){
                underTest.countClick();
             }
             underTest.buyClickCompanion();
-            expect(underTest.getCompanionCount()).toBe(1);
+            expect(underTest.displayCompanionCount()).toBe(1);
            
             
             
@@ -45,7 +45,10 @@ describe('Clicking Calamity Tests:', () => {
             underTest.buyClickCompanion();
             expect(underTest.companionCost).toBe(110);
 
-        })
+        });
+        it('AutoClick should add companionCount to clickCount', () =>{
+            expect(underTest.displayCompanionCount).toBeEqualto(clickCount + companionCount);
+        });
     });
 });
 

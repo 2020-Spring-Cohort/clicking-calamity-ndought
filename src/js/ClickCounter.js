@@ -3,11 +3,15 @@ class ClickCount {
         this.clickCount = 0;
         this.companionCount = 0;
         this.companionCost = 100;
+        this.autoClick = this.companionCount + this.clickCount;
     }
     countClick() {
         this.clickCount++;
     }
-    getCompanionCount(){
+    displayClickCount() {
+        return this.clickCount;
+    }
+    displayCompanionCount(){
         return this.companionCount;
     }
     buyClickCompanion() {
@@ -16,8 +20,9 @@ class ClickCount {
             this.companionCount++;
             this.companionCost = this.companionCost + (this.companionCost*0.1)
         }
-
-
+    }
+    addAutoClick() {
+        this.autoClick = this.companionCount + this.clickCount;
     }
 
 }
