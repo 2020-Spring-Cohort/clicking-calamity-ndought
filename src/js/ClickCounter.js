@@ -44,6 +44,9 @@ class CollectiveCulminationCompounder {
         this.compounderCount = 0;
         this.compounderCost = 10;
     }
+    countClick() {
+        this.clickCount++;
+    }
     countCompounder() {
         this.compounderCount++;
     }
@@ -54,7 +57,7 @@ class CollectiveCulminationCompounder {
         if (this.clickCount >= this.compounderCost){
             this.clickCount -= this.compounderCost;
             this.compounderCount++;
-            this.compounderCost = this.compounderCost + (this.countClick*0.1);
+            this.compounderCost = this.compounderCost + (this.compounderCost*0.1);
         }
     }
 }

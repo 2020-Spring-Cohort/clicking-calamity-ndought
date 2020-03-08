@@ -30,8 +30,6 @@ describe('Clicking Calamity Tests:', () => {
             underTest.buyClickCompanion();
             expect(underTest.displayCompanionCount()).toBe(1);
            
-            
-            
         });
         it('Buying ClickCompanion decreases clickCount by 100', () =>{
             for(let i = 0;i < 101; i++){
@@ -67,24 +65,27 @@ describe('Clicking Calamity Tests:', () => {
             underTest2.countCompounder();
             expect(underTest2.compounderCount).toBe(2);
         });
-
-
-
+    describe('Collective Culmination Compounder', () =>{
         it('Collective Culmination Compounder should have 0 when new', () =>{
             expect(underTest2.displayCompounderCount()).toBe(0);
         });
         it('Collective Culmination Compounder can be purchased for 10 clicks', () =>{
             for(let i = 0;i < 10; i++){
-                underTest.countClick();
+                underTest2.countClick();
             }
             underTest2.buyCompounder();
-            expect(underTest2.displayCompounderCount()).toBe(0);
-
-        });
-
+            expect(underTest2.displayCompounderCount()).toBe(1);
         
-
+        });
+        it('Buying Compounder decreases clickCount by 10', () =>{
+            for(let i=0;i < 11; i++){
+                underTest2.countClick();
+            }
+            underTest2.buyCompounder();
+            expect(underTest2.clickCount).toBe(1);
+        })
     });
+});
 }); 
         
 
