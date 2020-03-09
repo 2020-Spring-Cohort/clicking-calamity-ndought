@@ -83,7 +83,12 @@ describe('Clicking Calamity Tests:', () => {
             }
             underTest2.buyCompounder();
             expect(underTest2.clickCount).toBe(1);
-        })
+        });
+        it('Buying first Compounder increases countClick() value to 1.2', () =>{
+            underTest2.countClick(1);
+            underTest2.firstCompounder();
+            expect(underTest2.clickCount).toBe(1.2);
+        });
     });
 });
 }); 
