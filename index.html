@@ -6,14 +6,22 @@
     <title>Noah's Click Counter</title>
 </head>
 <body>
-    <h1>Noah's Click Counter</h1>
+    <div>
+    <h1>Noah's Cookie Clicker</h1>
+    </div>
+    <div class="container">
+        <main>
+            <section class="display">
+                <div class="display__clickCount"></div>
+            </section>
+            <section class="button">
+                <button onclick="getCurrentClickCount()">Click Me!</button>
+            </section>
+        </main>
+    </div>
+    
 
     
-    <button id="btn">Click Me!</button>
-    
-    <div class="container">
-        <div class="anchor"></div>
-    </div>
-    <script src="/src/app.js"></script>
-</body>
+    <script src="./src/js/app.js"></script>
+    </body>
 </html>

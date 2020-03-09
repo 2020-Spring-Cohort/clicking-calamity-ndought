@@ -1,10 +1,16 @@
-// iteration1
+// iteration1 and iteration 2
 
 class ClickCount {
     constructor() {
         this.clickCount = 0;
         this.companionCount = 0;
         this.companionCost = 100;
+        this.addAutoClick = ()=>{
+            this.clickCount += this.companionCount;
+            updateClickCount();
+        }
+        this.compounderCount = 0;
+        this.compounderCost = 10;
     }
     countClick() {
         this.clickCount++;
@@ -12,40 +18,19 @@ class ClickCount {
     displayClickCount() {
         return this.clickCount;
     }
-    displayCompanionCount(){
+    displayCompanionCount() {
         return this.companionCount;
     }
+    displayCompanionCost() {
+        return this.companionCost;
+    }
     buyClickCompanion() {
-        if (this.clickCount >= this.companionCost){
+        if (this.clickCount >= this.companionCost) {
             this.clickCount -= this.companionCost;
             this.companionCount++;
             this.companionCost = this.companionCost + (this.companionCost*0.1)
+            this.companionCost = Math.round(this.companionCost);
         }
-    }
-    addAutoClick() {
-    }
-
-    
-
-}
-setInterval(() => {
-    for(let i = 0; i<this.companionCount; i++){
-        this.countClick()
-    }
-}, 1000);
-
-// iteration2
-
-class CollectiveCulminationCompounder {
-    constructor() {
-        this.clickCount = 0;
-        this.companionCount = 0;
-        this.companionCost = 100;
-        this.compounderCount = 0;
-        this.compounderCost = 10;
-    }
-    countClick() {
-        this.clickCount++;
     }
     countCompounder() {
         this.compounderCount++;
@@ -58,8 +43,27 @@ class CollectiveCulminationCompounder {
             this.clickCount -= this.compounderCost;
             this.compounderCount++;
             this.compounderCost = this.compounderCost + (this.compounderCost*0.1);
+            this.compounderCost = Math.round(this.compounderCost);
+            updateClickCount();
         }
     }
-}
+    getMultiplier() {
+        return 1.2**this.displayCompounderCount();
 
-// Math.pow(1.2, this.compounderCost
+    }
+}
+    
+setInterval(() => {
+    for(let i = 0; i<this.companionCount; i++){
+        this.countClick()
+    }
+}, 1000);
+
+
+
+       
+
+
+
+
+   
