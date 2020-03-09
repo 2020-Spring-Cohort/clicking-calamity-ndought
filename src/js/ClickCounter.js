@@ -38,6 +38,9 @@ class ClickCount {
     displayCompounderCount() {
         return this.compounderCount;
     }
+    displayCompounderCost() {
+        return this.compounderCost;
+    }
     buyCompounder() {
         if (this.clickCount >= this.compounderCost){
             this.clickCount -= this.compounderCost;
