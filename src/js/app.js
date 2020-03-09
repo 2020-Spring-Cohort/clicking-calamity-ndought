@@ -1,7 +1,9 @@
 let appCookieClicker = new ClickCount;
-let appCompounder = new CollectiveCulminationCompounder;
+
 
 const clickCountButton = document.querySelector('.main-click-button');
+const companionButton = document.querySelector('.buy-companion-button');
+const compounderButton = document.querySelector('.buy-compounder-button';)
 
 
 const getCurrentClickCount = () =>{
@@ -13,19 +15,30 @@ const makeButtonIntoClickCounter = (appCookieClicker) => {
         document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount().toFixed(2);
     });
 }
-
-
-const makeButtonIntoClickCounter = (clickCountButton, _clickCountElement, _click) =>{
-    clickCountButton.addEventListener('click', ()=>{
-        _click.displayClickCount();
-        getCurrentClickCount(clickCountButton, _click);
-        updateDisplay()
+const makeButtonAddToCompanion = (appCookieClicker) => {
+    companionButton.addEventListener('click', () =>{
+        appCookieClicker.buyClickCompanion();
+        document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount();
+        document.querySelector('.displayCompanionCost').innerText = appCookieClicker.displayCompanionCost();
+    });
+} 
+const makeButtonAddToCompounder = (appCookieClicker) =>{
+    compounderButton.addEventListener('click', ()=> {
+        appCookieClicker.buyCompounder();
+        document.querySelector('.displayCompounderCount').innerText = appCookieClicker.displayCompounderCount();
+        document.querySelector('.displayCompounderCost').innerText = appCookieClicker.displayCompounderCost();
     });
 }
 const updateDisplay = ()=>{
     getCurrentClickCount(clickCountElement, appCookieClicker);
 }
-document.querySelector('.display__clickCount').innerText = ClickCount.displayClickCount();
+document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount();
+document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount();
+document.querySelector('.displayCompanionCost').innerText = appCookieClicker.displayCompanionCost();
+document.querySelector('.displayCompounderCount').innerText = appCookieClicker.displayCompounderCount();
+document.querySelector('.displayCompounderCost').innerText = appCookieClicker.displayCompounderCost();
+
+
 
 
 
@@ -34,12 +47,9 @@ setInterval(() => {
 }, 1000);
 
 
-
-
-const click = new countClick();
-
-
-makeButtonIntoClickCounter(clickCountButton, clickCountElement, _click);
+makeButtonIntoClickCounter(appCookieClicker);
+makeButtonAddToCompanion(appCookieClicker);
+makeButtonAddToCompounder(appCookieClicker);
 
 
 // document.querySelector('.display__clickCount').innerText = "test"
