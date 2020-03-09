@@ -42,12 +42,12 @@ class ClickCount {
         return this.compounderCost;
     }
     buyCompounder() {
-        if (this.clickCount >= this.compounderCost){
+        if (this.clickCount >= this.compounderCost) {
             this.clickCount -= this.compounderCost;
             this.compounderCount++;
             this.compounderCost = this.compounderCost + (this.compounderCost*0.1);
             this.compounderCost = Math.round(this.compounderCost);
-            updateClickCount();
+            cookieUpdateFunction();
         }
     }
     getMultiplier() {
