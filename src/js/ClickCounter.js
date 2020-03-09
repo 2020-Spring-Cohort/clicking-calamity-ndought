@@ -4,16 +4,18 @@ class ClickCount {
     constructor() {
         this.clickCount = 0;
         this.companionCount = 0;
-        this.companionCost = 100;
-        this.addAutoClick = ()=>{
-            this.clickCount += this.companionCount;
-            updateClickCount();
-        }
+        this.companionCost = 5;
         this.compounderCount = 0;
         this.compounderCost = 10;
+        this.clickValue = 1;
+        // this.addAutoClick = ()=>{
+        //     this.clickCount += this.companionCount;
+        //     this.displayClickCount();
+        // }
+        
     }
     countClick() {
-        this.clickCount++;
+        this.clickCount+=this.clickValue;
     }
     displayClickCount() {
         return this.clickCount;
@@ -27,9 +29,11 @@ class ClickCount {
     buyClickCompanion() {
         if (this.clickCount >= this.companionCost) {
             this.clickCount -= this.companionCost;
+            this.addAutoClick;
             this.companionCount++;
             this.companionCost = this.companionCost + (this.companionCost*0.1)
             this.companionCost = Math.round(this.companionCost);
+            
         }
     }
     countCompounder() {
@@ -42,25 +46,28 @@ class ClickCount {
         return this.compounderCost;
     }
     buyCompounder() {
-        if (this.clickCount >= this.compounderCost){
+        if (this.clickCount >= this.compounderCost) {
             this.clickCount -= this.compounderCost;
             this.compounderCount++;
             this.compounderCost = this.compounderCost + (this.compounderCost*0.1);
             this.compounderCost = Math.round(this.compounderCost);
-            updateClickCount();
+            this.compoundClickValue();
+            
         }
     }
-    getMultiplier() {
-        return 1.2**this.displayCompounderCount();
+    getClickValue() {
+        return this.clickValue;
+    }
+    compoundClickValue() {
+        this.clickValue = 1 * Math.pow(1.2, this.clickValue);
 
     }
-}
-    
-setInterval(() => {
-    for(let i = 0; i<this.companionCount; i++){
-        this.countClick()
+    updateDisplay() {
+        return this.addAutoClick;
     }
-}, 1000);
+    
+}
+
 
 
 

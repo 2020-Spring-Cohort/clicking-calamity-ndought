@@ -2,10 +2,10 @@
 
 describe('Clicking Calamity Tests:', () => {
     let underTest;
-    let underTest2;
+    
     beforeEach(() => {
         underTest = new ClickCount();
-        underTest2 = new CollectiveCulminationCompounder();
+        
     })
     describe('countClick() records each click and ClickCounter can display the clickCount', () => {
 
@@ -32,11 +32,11 @@ describe('Clicking Calamity Tests:', () => {
            
         });
         it('Buying ClickCompanion decreases clickCount by 100', () =>{
-            for(let i = 0;i < 101; i++){
+            for(let i = 0;i < 100; i++){
                 underTest.countClick();
              }
              underTest.buyClickCompanion();
-             expect(underTest.clickCount).toBe(1);
+             expect(underTest.clickCount).toBe(0);
         });
         it('ClickCompanion cost should increase 10% each time', () =>{
             for(let i = 0;i < 101; i++){
@@ -46,8 +46,8 @@ describe('Clicking Calamity Tests:', () => {
             expect(underTest.companionCost).toBe(110);
 
         });
-        it('AutoClick should add click to companionCount every second', () =>{
-            for(let i = 0; i<this.companionCount; i++){
+        it('AutoClick should add click to clickCount every second', () =>{
+            for(let i = 0; i<this.clickCount; i++){
                 underTest.countClick();
                 expect(underTest.setInterval).toBeEqualto(1000);
             }
@@ -57,41 +57,49 @@ describe('Clicking Calamity Tests:', () => {
     describe('Collective Culmination Compounder records each click and countCompounder can display CompounderCount', () =>{
 
         it('countCompounder() 1 time should result in a CompounderCount of 1', () =>{
-            underTest2.countCompounder(0);
-            expect(underTest2.compounderCount).toBe(1);
+            underTest.countCompounder(0);
+            expect(underTest.compounderCount).toBe(1);
         });
         it('countCompounder() 2 times should result in a CompounderCount of 2', () =>{
-            underTest2.countCompounder();
-            underTest2.countCompounder();
-            expect(underTest2.compounderCount).toBe(2);
+            underTest.countCompounder();
+            underTest.countCompounder();
+            expect(underTest.compounderCount).toBe(2);
         });
     describe('Collective Culmination Compounder', () =>{
         it('Collective Culmination Compounder should have 0 when new', () =>{
-            expect(underTest2.displayCompounderCount()).toBe(0);
+            expect(underTest.displayCompounderCount()).toBe(0);
         });
         it('Collective Culmination Compounder can be purchased for 10 clicks', () =>{
             for(let i = 0;i < 10; i++){
-                underTest2.countClick();
+                underTest.countClick();
             }
-            underTest2.buyCompounder();
-            expect(underTest2.displayCompounderCount()).toBe(1);
+            underTest.buyCompounder();
+            expect(underTest.displayCompounderCount()).toBe(1);
         
         });
         it('Buying Compounder decreases clickCount by 10', () =>{
             for(let i=0;i < 11; i++){
-                underTest2.countClick();
+                underTest.countClick();
             }
-            underTest2.buyCompounder();
-            expect(underTest2.clickCount).toBe(1);
+            underTest.buyCompounder();
+            expect(underTest.clickCount).toBe(1);
         });
         it('Buying first Compounder increases countClick() value to 1.2', () =>{
-            underTest2.countClick(1);
-            underTest2.firstCompounder();
-            expect(underTest2.clickCount).toBe(1.2);
+            for (let i=0; i<10; i++){
+                underTest.countClick();
+            }
+            underTest.buyCompounder();
+            expect(underTest.firstCompounder()).toBe(1.2); 
         });
+    describe('getClickValue() should return the value of each click', () =>{
+        it('clickValue should be 1 at start of game', () =>{
+             expect(underTest.getClickValue()).toBe(1);
+        });
+        
     });
 });
-}); 
+});
+});
         
 
     

@@ -18,7 +18,7 @@ const makeButtonIntoClickCounter = (appCookieClicker) => {
 const makeButtonAddToCompanion = (appCookieClicker) => {
     companionButton.addEventListener('click', () =>{
         appCookieClicker.buyClickCompanion();
-        document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount();
+        document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount().toFixed(2);
         document.querySelector('.displayCompanionCost').innerText = appCookieClicker.displayCompanionCost();
     });
 } 
@@ -30,7 +30,13 @@ const makeButtonAddToCompounder = (appCookieClicker) =>{
     });
 }
 const updateDisplay = (appCookieClicker)=>{
-    getCurrentClickCount(appCookieClicker);
+    // document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount().toFixed(2);
+    // document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount();
+document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount().toFixed(2);
+document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount();
+document.querySelector('.displayCompanionCost').innerText = appCookieClicker.displayCompanionCost();
+document.querySelector('.displayCompounderCount').innerText = appCookieClicker.displayCompounderCount();
+document.querySelector('.displayCompounderCost').innerText = appCookieClicker.displayCompounderCost();
 }
 document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount();
 document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount();
@@ -39,11 +45,11 @@ document.querySelector('.displayCompounderCount').innerText = appCookieClicker.d
 document.querySelector('.displayCompounderCost').innerText = appCookieClicker.displayCompounderCost();
 
 
-
-
-
 setInterval(() => {
-    cookieUpdateFunction()
+    for(let i = 0; i<appCookieClicker.companionCount; i++){
+        appCookieClicker.countClick();
+    }
+    updateDisplay(appCookieClicker)
 }, 1000);
 
 
