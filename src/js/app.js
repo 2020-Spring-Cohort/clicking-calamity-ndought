@@ -3,10 +3,10 @@ let appCookieClicker = new ClickCount;
 
 const clickCountButton = document.querySelector('.main-click-button');
 const companionButton = document.querySelector('.buy-companion-button');
-const compounderButton = document.querySelector('.buy-compounder-button';)
+const compounderButton = document.querySelector('.buy-compounder-button');
 
 
-const getCurrentClickCount = () =>{
+const getCurrentClickCount = (appCookieClicker) =>{
     document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount().toFixed(2);
 }
 const makeButtonIntoClickCounter = (appCookieClicker) => {
@@ -29,8 +29,8 @@ const makeButtonAddToCompounder = (appCookieClicker) =>{
         document.querySelector('.displayCompounderCost').innerText = appCookieClicker.displayCompounderCost();
     });
 }
-const updateDisplay = ()=>{
-    getCurrentClickCount(clickCountElement, appCookieClicker);
+const updateDisplay = (appCookieClicker)=>{
+    getCurrentClickCount(appCookieClicker);
 }
 document.querySelector('.displayClickCount').innerText = appCookieClicker.displayClickCount();
 document.querySelector('.displayCompanionCount').innerText = appCookieClicker.displayCompanionCount();
