@@ -43,7 +43,7 @@ document.querySelector('.displayCompounderCost').innerText = appCookieClicker.di
 
 
 setInterval(() => {
-    noahsUpdateFunction()
+    cookieUpdateFunction()
 }, 1000);
 
 
