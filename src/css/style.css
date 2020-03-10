@@ -1,8 +1,25 @@
 .container {
-    display: grid;
-    
+    text-align: center;
 }
 
-.background {
-    color: rgb(68, 137, 235);
+
+.main-click-button {
+    height: 50px;
+    width: 100px;
+    
+}
+.buy-companion-button {
+    height: 50px;
+}
+.buy-compounder-button {
+    height: 50px;
+}
+
+body {
+    background-image: url("./image/sea-edge-79ab30e2.png"); 
+    background-size: 1950px;
+    
+}
+.cookie {
+    text-align: center;
 }

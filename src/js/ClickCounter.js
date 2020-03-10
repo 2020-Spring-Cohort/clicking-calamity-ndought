@@ -4,7 +4,7 @@ class ClickCount {
     constructor() {
         this.clickCount = 0;
         this.companionCount = 0;
-        this.companionCost = 5;
+        this.companionCost = 100;
         this.compounderCount = 0;
         this.compounderCost = 10;
         this.clickValue = 1;
